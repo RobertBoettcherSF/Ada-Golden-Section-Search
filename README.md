@@ -12,14 +12,14 @@ For a unimodal objective $f$ on $[a,b]$, golden-section search keeps two
 interior probes. The golden ratio and reusable probe ratio are
 
 $$
-arphi = rac{1+\sqrt{5}}{2}, \qquad
-	au = rac{1}{arphi} = arphi-1 pprox 0.6180339887.
+\varphi = \frac{1+\sqrt{5}}{2}, \qquad
+\tau = \frac{1}{\varphi} = \varphi-1 \approx 0.6180339887.
 $$
 
 The probes are
 
 $$
-c=b-	au(b-a), \qquad d=a+	au(b-a).
+c=b-\tau(b-a), \qquad d=a+\tau(b-a).
 $$
 
 For minimization, if $f(c) \le f(d)$ the right portion is discarded;
@@ -28,13 +28,13 @@ One old probe is reused, so every iteration after initialization costs one new
 objective evaluation. The bracket width contracts deterministically:
 
 $$
-\Delta x_k = 	au^k \Delta x_0.
+\Delta x_k = \tau^k \Delta x_0.
 $$
 
 Thus an approximate iteration count for absolute tolerance $\epsilon$ is
 
 $$
-k \ge rac{\log(\epsilon/\Delta x_0)}{\log(	au)}.
+k \ge \frac{\log(\epsilon/\Delta x_0)}{\log(\tau)}.
 $$
 
 The method needs no derivatives and is robust, but it assumes unimodality on
@@ -44,7 +44,7 @@ objectives do not provide a unique-extremum guarantee.
 
 Fibonacci search replaces the constant limiting ratio by ratios of consecutive
 Fibonacci numbers. For a predetermined finite evaluation budget it gives the
-finite-horizon analogue whose ratios approach $	au$.
+finite-horizon analogue whose ratios approach $\tau$.
 
 ## API
 
@@ -97,7 +97,7 @@ Fibonacci search.
 
 ## Relationship to Ada-Line-Search
 
-The sibling [Ada-Line-Search](../ada-line-search/) repository includes a
+The sibling [Ada-Line-Search](https://github.com/RobertBoettcherSF/Ada-Line-Search) repository includes a
 golden-section routine in a broader optimization line-search toolkit. This
 repository is the dedicated Wikipedia algorithm presentation: a focused API,
 full ratio and convergence theory, endpoint behavior, Fibonacci search, and
