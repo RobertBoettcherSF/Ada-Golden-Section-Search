@@ -1,8 +1,4 @@
-with Ada.Numerics.Long_Elementary_Functions;
-
 package body Golden_Section_Search is
-   use Ada.Numerics.Long_Elementary_Functions;
-
    procedure Validate
      (A, B   : Scalar;
       Config : Search_Config)
@@ -48,7 +44,7 @@ package body Golden_Section_Search is
    is
       Left  : Scalar := A;
       Right : Scalar := B;
-      P     : Probe_Pair := Golden_Probes (A, B);
+      P     : constant Probe_Pair := Golden_Probes (A, B);
       C     : Scalar := P.Lower;
       D     : Scalar := P.Upper;
       FC    : Scalar := F (C);
